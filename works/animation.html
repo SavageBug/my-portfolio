@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>动画作品 | 我的创意空间</title>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .works-container {
+            padding-top: 5rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding-inline: 1rem;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed);
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .animation-container {
+            position: relative;
+            padding-bottom: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            overflow: hidden;
+        }
+
+        .animation-preview {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+
+        .work-card:hover .animation-preview {
+            transform: scale(1.05);
+        }
+
+        .animation-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .work-card:hover .animation-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            background: white;
+        }
+
+        .work-card-content {
+            padding: 1.5rem;
+        }
+
+        .work-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .work-card p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .work-card .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--background-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+        }
+
+        .duration {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index_new.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span class="back-text">返回</span>
+    </a>
+
+    <div class="works-container">
+        <article class="work-card">
+            <div class="animation-container">
+                <img src="https://source.unsplash.com/random/400x400?3d" alt="动画预览1" class="animation-preview">
+                <div class="animation-overlay">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <span class="duration">角色动画</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI角色动画</h3>
+                <p>利用AI技术创作的角色动画，展现生动的表情和动作。</p>
+                <div class="tags">
+                    <span class="tag">角色</span>
+                    <span class="tag">动画</span>
+                    <span class="tag">AI</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-card">
+            <div class="animation-container">
+                <img src="https://source.unsplash.com/random/400x400?motion" alt="动画预览2" class="animation-preview">
+                <div class="animation-overlay">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <span class="duration">动态图形</span>
+            </div>
+            <div class="work-card-content">
+                <h3>动态图形设计</h3>
+                <p>结合AI与创意设计，打造富有视觉冲击力的动态图形。</p>
+                <div class="tags">
+                    <span class="tag">图形</span>
+                    <span class="tag">设计</span>
+                    <span class="tag">动效</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-card">
+            <div class="animation-container">
+                <img src="https://source.unsplash.com/random/400x400?abstract" alt="动画预览3" class="animation-preview">
+                <div class="animation-overlay">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <span class="duration">场景动画</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI场景动画</h3>
+                <p>通过AI技术创造动态场景，实现独特的视觉体验。</p>
+                <div class="tags">
+                    <span class="tag">场景</span>
+                    <span class="tag">环境</span>
+                    <span class="tag">创意</span>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        const translations = {
+            zh: {
+                back: "返回",
+                title: "动画作品 | 我的创意空间"
+            },
+            en: {
+                back: "Back",
+                title: "Animation Works | My Creative Space"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.title = translations[lang].title;
+            document.querySelector('.back-text').textContent = translations[lang].back;
+        }
+
+        // Animation preview functionality (placeholder)
+        document.querySelectorAll('.animation-overlay').forEach(overlay => {
+            overlay.addEventListener('click', () => {
+                alert('动画播放功能即将上线！\nAnimation playback coming soon!');
+            });
+        });
+
+        // Check localStorage for language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = localStorage.getItem('lang') || 'zh';
+            updateLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>

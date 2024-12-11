@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>音频作品 | 我的创意空间</title>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .works-container {
+            padding-top: 5rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding-inline: 1rem;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed);
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .audio-container {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .audio-visualizer {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            height: 60px;
+        }
+
+        .visualizer-bar {
+            width: 4px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 2px;
+            animation: soundBars 1.2s ease-in-out infinite;
+        }
+
+        .visualizer-bar:nth-child(1) { height: 60%; animation-delay: 0.2s; }
+        .visualizer-bar:nth-child(2) { height: 30%; animation-delay: 0.3s; }
+        .visualizer-bar:nth-child(3) { height: 75%; animation-delay: 0.4s; }
+        .visualizer-bar:nth-child(4) { height: 45%; animation-delay: 0.5s; }
+        .visualizer-bar:nth-child(5) { height: 85%; animation-delay: 0.6s; }
+
+        @keyframes soundBars {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+        }
+
+        .audio-controls {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .play-pause {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all var(--transition-speed);
+        }
+
+        .play-pause:hover {
+            transform: scale(1.1);
+        }
+
+        .time-display {
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .work-card-content {
+            padding: 1.5rem;
+        }
+
+        .work-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .work-card p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .work-card .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--background-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+        }
+
+        .duration {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index_new.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span class="back-text">返回</span>
+    </a>
+
+    <div class="works-container">
+        <article class="work-card">
+            <div class="audio-container">
+                <div class="audio-visualizer">
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                </div>
+                <div class="audio-controls">
+                    <span class="time-display">0:00</span>
+                    <button class="play-pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="time-display">3:45</span>
+                </div>
+                <span class="duration">音乐</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI音乐创作</h3>
+                <p>利用AI技术创作的原创音乐作品，融合多种音乐风格。</p>
+                <div class="tags">
+                    <span class="tag">音乐</span>
+                    <span class="tag">AI作曲</span>
+                    <span class="tag">创新</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-card">
+            <div class="audio-container">
+                <div class="audio-visualizer">
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                </div>
+                <div class="audio-controls">
+                    <span class="time-display">0:00</span>
+                    <button class="play-pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="time-display">2:30</span>
+                </div>
+                <span class="duration">配音</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI语音合成</h3>
+                <p>使用AI技术生成自然、富有表现力的语音内容。</p>
+                <div class="tags">
+                    <span class="tag">配音</span>
+                    <span class="tag">语音</span>
+                    <span class="tag">合成</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-card">
+            <div class="audio-container">
+                <div class="audio-visualizer">
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                    <div class="visualizer-bar"></div>
+                </div>
+                <div class="audio-controls">
+                    <span class="time-display">0:00</span>
+                    <button class="play-pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <span class="time-display">4:15</span>
+                </div>
+                <span class="duration">音效</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI音效设计</h3>
+                <p>通过AI技术创造独特的音效，为各类项目提供声音支持。</p>
+                <div class="tags">
+                    <span class="tag">音效</span>
+                    <span class="tag">设计</span>
+                    <span class="tag">创意</span>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        const translations = {
+            zh: {
+                back: "返回",
+                title: "音频作品 | 我的创意空间"
+            },
+            en: {
+                back: "Back",
+                title: "Audio Works | My Creative Space"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.title = translations[lang].title;
+            document.querySelector('.back-text').textContent = translations[lang].back;
+        }
+
+        // Audio controls functionality (placeholder)
+        document.querySelectorAll('.play-pause').forEach(button => {
+            button.addEventListener('click', () => {
+                const icon = button.querySelector('i');
+                if (icon.classList.contains('fa-play')) {
+                    icon.classList.replace('fa-play', 'fa-pause');
+                } else {
+                    icon.classList.replace('fa-pause', 'fa-play');
+                }
+                alert('音频播放功能即将上线！\nAudio playback coming soon!');
+            });
+        });
+
+        // Check localStorage for language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = localStorage.getItem('lang') || 'zh';
+            updateLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>

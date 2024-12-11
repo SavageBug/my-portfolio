@@ -1,0 +1,382 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --accent-color: #FF4081;
+    --text-color: #333;
+    --light-text: #fff;
+    --background-color: #f4f4f4;
+    --section-padding: clamp(1.5rem, 5vw, 4rem);
+    --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition-speed: 0.3s;
+    --container-width: min(90%, 1200px);
+    --font-size-base: clamp(1rem, 1vw + 0.5rem, 1.2rem);
+    --font-size-h1: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+    --font-size-h2: clamp(1.5rem, 2.5vw + 1rem, 2.2rem);
+    --font-size-subtitle: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: var(--font-size-base);
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text);
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    text-align: center;
+    font-size: var(--font-size-h1);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    padding: 0 1rem;
+}
+
+nav {
+    width: var(--container-width);
+    margin: 0 auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-speed);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+nav ul li a:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.hero-banner {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.8), rgba(0, 151, 167, 0.8)), url('images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: var(--container-width);
+    padding: clamp(1.5rem, 5vw, 3rem);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero-banner h2 {
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    animation: fadeInUp 1s ease-out;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    line-height: 1.2;
+}
+
+.hero-banner p {
+    font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+    margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all var(--transition-speed);
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+    border: 2px solid transparent;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    background-color: transparent;
+    border-color: var(--accent-color);
+}
+
+main {
+    margin-top: clamp(4rem, 10vh, 6rem);
+    width: var(--container-width);
+    margin-inline: auto;
+    padding: 0 1rem;
+}
+
+.content-section {
+    padding: var(--section-padding);
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: clamp(2rem, 5vh, 3rem);
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+#about {
+    background: linear-gradient(to right, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.8)), url('images/about-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#vision {
+    background: linear-gradient(to right, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.8)), url('images/vision-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#hobbies {
+    background: linear-gradient(to right, rgba(255,255,255,0.95) 50%, rgba(255,255,255,0.8)), url('images/hobbies-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    font-size: var(--font-size-h2);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    font-size: var(--font-size-subtitle);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    margin-top: 2rem;
+}
+
+.work-item {
+    background: linear-gradient(135deg, #f8f9fa, #fff);
+    border-radius: 20px;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, #fff, #f8f9fa);
+}
+
+.work-preview {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.work-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.work-item:hover .work-preview img {
+    transform: scale(1.05);
+}
+
+.work-content {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.work-item i {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-speed);
+}
+
+.work-item:hover i {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+.work-item h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    transition: color var(--transition-speed);
+}
+
+.work-item:hover h3 {
+    color: var(--primary-color);
+}
+
+.work-item p {
+    color: var(--text-color);
+    opacity: 0.8;
+    transition: opacity var(--transition-speed);
+}
+
+.work-item:hover p {
+    opacity: 1;
+}
+
+footer {
+    background: linear-gradient(135deg, #333, #222);
+    color: var(--light-text);
+    padding: clamp(2rem, 5vh, 3rem) 0;
+    text-align: center;
+    position: relative;
+    margin-top: clamp(3rem, 8vh, 5rem);
+}
+
+.social-icons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+.social-icons a {
+    color: var(--light-text);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    width: clamp(40px, 8vw, 45px);
+    height: clamp(40px, 8vw, 45px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    transition: all var(--transition-speed);
+}
+
+.social-icons a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        justify-content: space-around;
+    }
+
+    .hero-content {
+        padding: clamp(1rem, 3vw, 2rem);
+    }
+
+    .work-preview {
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 1.5rem;
+    }
+
+    .hero-banner {
+        padding: 3rem 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .works-grid {
+        gap: 1rem;
+    }
+
+    .work-preview {
+        height: 140px;
+    }
+}
+
+@media print {
+    .hero-banner {
+        height: auto;
+        min-height: auto;
+    }
+
+    .content-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}

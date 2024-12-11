@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>视频作品 | 我的创意空间</title>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1001;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .works-container {
+            padding-top: 5rem;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding-inline: 1rem;
+        }
+
+        .work-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed);
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            transition: opacity var(--transition-speed);
+        }
+
+        .video-thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+        }
+
+        .play-button:hover {
+            background: var(--accent-color);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .work-card-content {
+            padding: 1.5rem;
+        }
+
+        .work-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .work-card p {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .work-card .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: var(--background-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index_new.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        <span class="back-text">返回</span>
+    </a>
+
+    <div class="works-container">
+        <article class="work-card">
+            <div class="video-container">
+                <img src="https://source.unsplash.com/random/400x225?video" alt="视频缩略图1" class="video-thumbnail">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+                <span class="duration">3:45</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI视觉特效</h3>
+                <p>展示如何使用AI技术创造令人惊叹的视觉特效，包括场景重建和动态效果。</p>
+                <div class="tags">
+                    <span class="tag">特效</span>
+                    <span class="tag">AI处理</span>
+                    <span class="tag">视觉</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-card">
+            <div class="video-container">
+                <img src="https://source.unsplash.com/random/400x225?editing" alt="视频缩略图2" class="video-thumbnail">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+                <span class="duration">5:20</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI视频剪辑</h3>
+                <p>通过AI技术实现智能化的视频剪辑，打造流畅的叙事节奏。</p>
+                <div class="tags">
+                    <span class="tag">剪辑</span>
+                    <span class="tag">后期</span>
+                    <span class="tag">创意</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-card">
+            <div class="video-container">
+                <img src="https://source.unsplash.com/random/400x225?movie" alt="视频缩略图3" class="video-thumbnail">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+                <span class="duration">4:15</span>
+            </div>
+            <div class="work-card-content">
+                <h3>AI场景生成</h3>
+                <p>利用AI技术生成逼真的虚拟场景，为视频制作提供无限可能。</p>
+                <div class="tags">
+                    <span class="tag">场景</span>
+                    <span class="tag">生成</span>
+                    <span class="tag">创新</span>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        // Language toggle functionality
+        const translations = {
+            zh: {
+                back: "返回",
+                title: "视频作品 | 我的创意空间"
+            },
+            en: {
+                back: "Back",
+                title: "Video Works | My Creative Space"
+            }
+        };
+
+        function updateLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.title = translations[lang].title;
+            document.querySelector('.back-text').textContent = translations[lang].back;
+        }
+
+        // Video thumbnail click handler (placeholder for actual video implementation)
+        document.querySelectorAll('.video-container').forEach(container => {
+            container.addEventListener('click', () => {
+                alert('视频播放功能即将上线！\nVideo playback coming soon!');
+            });
+        });
+
+        // Check localStorage for language preference
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = localStorage.getItem('lang') || 'zh';
+            updateLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>
